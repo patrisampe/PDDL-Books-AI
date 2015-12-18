@@ -28,12 +28,12 @@
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
   ; Predecesores
-  (predecesor Harry_Potter_5 Harry_Potter_4)
-  (predecesor Harry_Potter_4 Harry_Potter_3)
-  (predecesor Harry_Potter_3 Harry_Potter_2)
-  (predecesor Harry_Potter_2 Harry_Potter_1)
-  (predecesor Star_Wars_3 Star_Wars_2)
-  (predecesor Star_Wars_2 Star_Wars_1)
+  (predecessor Harry_Potter_5 Harry_Potter_4)
+  (predecessor Harry_Potter_4 Harry_Potter_3)
+  (predecessor Harry_Potter_3 Harry_Potter_2)
+  (predecessor Harry_Potter_2 Harry_Potter_1)
+  (predecessor Star_Wars_3 Star_Wars_2)
+  (predecessor Star_Wars_2 Star_Wars_1)
   ; Libros que ya hemos leido
   (leido Harry_Potter_1)
   ; Libros que deseamos leer
@@ -48,7 +48,7 @@
   (= (paginas Star_Wars_2) 100)
   (= (paginas Star_Wars_1) 100)
   (= (paginas Star_Wars_3) 100)
-  (= (paginas_totales) 0)
+  (= (paginas_actuales) 0)
   
 )
 

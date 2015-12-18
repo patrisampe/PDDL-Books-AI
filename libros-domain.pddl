@@ -2,7 +2,7 @@
   (:requirements :strips :adl :typing :fluents)
   (:types libro mes - object)           
   (:functions
-    (paginas ?l - libros)
+    (paginas ?l - libro)
     (paginas_actuales)
   )
   (:predicates
@@ -45,7 +45,7 @@
       (mes_actual ?m) (mes_siguiente ?m ?m2)
       (not (exists (?l - libro)
         (and 
-          (lleyendo_mes_anterior ?l)
+          (leyendo_mes_anterior ?l)
           (exists (?p - libro)
             (and 
               (paralelo ?l ?p)
@@ -86,7 +86,7 @@
       (mes_actual ?m)
       (not (exists (?l - libro)
         (and 
-          (lleyendo_mes_anterior ?l)
+          (leyendo_mes_anterior ?l)
           (exists (?p - libro)
             (and 
               (paralelo ?l ?p)
@@ -99,7 +99,7 @@
       ))
       (not (exists (?l - libro)
         (and 
-          (lleyendo ?l)
+          (leyendo ?l)
           (exists (?p - libro)
             (and 
               (paralelo ?l ?p)
