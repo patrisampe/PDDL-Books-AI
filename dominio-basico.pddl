@@ -12,14 +12,15 @@
   )
 
   (:action leer
-    :parameters (?l - libro)
-    :precondition (and  (not (leido ?l))
-                        ;(or (deseado ?l) (exists (?p - libro) (and (predecesor ?p ?l)
-                         ;                                          (deseado ?p)))
-                        ;)
-                        (not (exists (?p - libro) (and (predecesor ?l ?p) 
-                                                       (not (leido ?p))))
-                        )
+    :parameters (?l - libro ?m - mes)
+    :precondition (and (not (leido ?l))
+                       (mes_actual ?m)
+                       (or (deseado ?l) (exists (?p - libro) (and (predecesor ?p ?l)
+                                                                  (deseado ?p)))
+                       )
+                       (not (exists (?p - libro) (and (predecesor ?l ?p) 
+                                                      (not (leido ?p))))
+                       )
                   )
     :effect (and (leido ?l))
   )
@@ -33,6 +34,5 @@
                  (mes_actual ?m2)
             )
   )
-
 )
 
