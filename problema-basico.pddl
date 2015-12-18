@@ -36,13 +36,12 @@
   ; Libros que ya hemos leido
   (leido Harry_Potter_1)
   ; Libros que deseamos leer
-  (deseado Harry_Potter_4)
-  (deseado Star_Wars_3)
+  (deseado Harry_Potter_3)
+  (deseado Star_Wars_2)
 )
 
 (:goal (and
-  (leido Harry_Potter_4)
-  (leido Star_Wars_3)
+  (forall (?l - libro) (imply (deseado ?l) (leido ?l)))  
 	)
 )
 
