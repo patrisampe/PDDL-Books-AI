@@ -54,6 +54,7 @@
               (not (leido ?p))
             )
           )
+          (= (paginas_actuales) 0)
         )
       ))
 
