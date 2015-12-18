@@ -17,9 +17,10 @@
   )
 
   (:action leer
-    :parameters (?l - libro)
+    :parameters (?l - libro) (?m - mes)
     :precondition (and 
-      
+
+      (mes_actual ?m)
       (not (leido ?l)) 
       (not (leyendo_mes_anterior ?l))
 			(not (exists (?p - libro) 
