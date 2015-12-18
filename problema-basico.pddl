@@ -1,6 +1,6 @@
 (define (problem basico1) (:domain basico)
 (:objects
-	l1 l2 l3 l4 l5 l6 l7 l8 l9 l10- libro
+	l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 - libro
 	enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre - mes
 )
 
