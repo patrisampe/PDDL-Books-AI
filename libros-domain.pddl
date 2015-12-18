@@ -62,18 +62,19 @@
       (not (mes_actual ?m)) 
       (mes_actual ?m2) 
 	(forall (?l - libro)
-  	(imply (leyendo_mes_anterior ?l) 
-          (and
-            (not (leyendo_mes_anterior ?l))
-            (leido ?l)
-          )
-        )
-  	(imply (leyendo ?l) 
-          (and
-            (not (leyendo ?l))
-            (leyendo_mes_anterior ?l)
-          )
-        )
+	  (when (leyendo_mes_anterior ?l) 
+	    (and
+	      (not (leyendo_mes_anterior ?l))
+	      (leido ?l)
+	    )
+	  ))
+	  (forall (?l - libro)
+	  (when (leyendo ?l) 
+	    (and
+	      (not (leyendo ?l))
+	      (leyendo_mes_anterior ?l)
+	    )
+	  )
       )
     )
   )
@@ -111,19 +112,22 @@
     :effect (and
       (not (mes_actual ?m))
       (forall (?l - libro)
-        (imply (leyendo_mes_anterior ?l) 
+        (when (leyendo_mes_anterior ?l) 
           (and
             (not (leyendo_mes_anterior ?l))
             (leido ?l)
           )
         )
-        (imply (leyendo ?l) 
+        )
+        (forall (?l - libro)
+        (when (leyendo ?l) 
           (and
             (not (leyendo ?l))
             (leido ?l)
           )
         )
       )
+    )
     )
 
 
