@@ -17,25 +17,26 @@
   )
 
   (:action leer
-    :parameters (?l - libro) (?m - mes)
+    :parameters (?l - libro ?m - mes)
     :precondition (and 
 
       (mes_actual ?m)
       (not (leido ?l)) 
       (not (leyendo_mes_anterior ?l))
-			(not (exists (?p - libro) 
+	(not (exists (?p - libro) 
         (and
           (predecessor ?l ?p)
-  				(or 
+  	    (or 
             (not (leido ?p))  
             (not (leyendo_mes_anterior ?p))
           ) 
         )
-      ))
+      )
+      )
   		(<= (+ (paginas ?l) (paginas_actuales)) 800)
 
     )
-    :effect (leyendo ?l) (increase (paginas_actuales) (paginas ?l))
+    :effect (and (leyendo ?l) (increase (paginas_actuales) (paginas ?l)))
   )
   
   (:action pasar_de_mes
@@ -60,14 +61,14 @@
     :effect (and 
       (not (mes_actual ?m)) 
       (mes_actual ?m2) 
-			(forall (?l - libro)
-  			(imply (leyendo_mes_anterior ?l) 
+	(forall (?l - libro)
+  	(imply (leyendo_mes_anterior ?l) 
           (and
             (not (leyendo_mes_anterior ?l))
             (leido ?l)
           )
         )
-  			(imply (leyendo ?l) 
+  	(imply (leyendo ?l) 
           (and
             (not (leyendo ?l))
             (leyendo_mes_anterior ?l)
