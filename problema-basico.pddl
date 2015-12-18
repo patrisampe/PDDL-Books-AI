@@ -1,6 +1,14 @@
 (define (problem basico1) (:domain basico)
 (:objects
-	l1 l2 l3 l4 l5 l6 l7 l8 l9 l10- libro
+	Harry_Potter_1
+  Harry_Potter_2
+  Harry_Potter_3
+  Harry_Potter_4
+  Harry_Potter_5
+  Star_Wars_1
+  Star_Wars_2
+  Star_Wars_3
+  - libro
 	enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre - mes
 )
 
@@ -18,20 +26,23 @@
   (mes_siguiente setiembre octubre)
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
+  ; Predecesores
+  (predecesor Harry_Potter_5 Harry_Potter_4)
+  (predecesor Harry_Potter_4 Harry_Potter_3)
+  (predecesor Harry_Potter_3 Harry_Potter_2)
+  (predecesor Harry_Potter_2 Harry_Potter_1)
+  (predecesor Star_Wars_3 Star_Wars_2)
+  (predecesor Star_Wars_2 Star_Wars_1)
   ; Libros que ya hemos leido
-  (leido l1)
-  (leido l2)
+  (leido Harry_Potter_1)
   ; Libros que deseamos leer
-  (deseado l3)
-  (deseado l4)
-  (deseado l5)
-
+  (deseado Harry_Potter_4)
+  (deseado Star_Wars_3)
 )
 
 (:goal (and
-  (leido l3)
-  (leido l4)
-  (leido l5)
+  (leido Harry_Potter_4)
+  (leido Star_Wars_3)
 	)
 )
 
