@@ -13,7 +13,7 @@ numerodenodes = int(sys.argv[1])
 numerodeseados = int(sys.argv[2])
 numeroleidos = int(sys.argv[3])
 
-f =open('provaambgeneradordefi_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
+f =open('provaambgeneradordefo_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
 
 G=nx.gnp_random_graph(numerodenodes,random.uniform(0.1,0.9),directed=True)
 DAG = nx.DiGraph([(u,v,{'weight':random.randint(1,1)}) for (u,v) in G.edges() if u<v] )
@@ -79,11 +79,11 @@ f.write( '\n (es_fi fin)' )
 f.write( '\n)'  )
 
 f.write( '\n(:goal (and ')
-"""
+
 for i in range(len(deseo)):
     f.write( '\n  (leido libro_'+`deseo[i]`+')')
 """
 f.write ("\n forall (?l libro) (imply (deseado ?l) (leido ?l)))")
-
+"""
 f.write( '\n))')
 f.close()
