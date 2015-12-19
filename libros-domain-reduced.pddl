@@ -5,6 +5,7 @@
  ;   (paginas ?l - libro)
  ;   (paginas_actuales)
  ; )
+
   (:predicates
    (leido ?l - libro)
    (leyendo ?l - libro)
@@ -14,13 +15,15 @@
    (deseado ?l - libro)
    (predecessor ?l1 - libro ?lp - libro)
    (paralelo ?l1 - libro ?l2 - libro)  
+   (es_fi ?m - mes)
   )
 
   (:action leer
     :parameters (?l - libro ?m - mes)
     :precondition (and 
-
+      (not (es_fi ?m))
       (mes_actual ?m)
+      (not (leyendo ?l))
       (not (leido ?l)) 
       (not (leyendo_mes_anterior ?l))
 	(not (exists (?p - libro) 
@@ -78,56 +81,6 @@
     )
   )
 
-  (:action acabar
-    :parameters (?m - mes)
-    :precondition (and 
-      (mes_actual ?m)
-      (not (exists (?l - libro)
-        (and 
-          (leyendo_mes_anterior ?l)
-          (exists (?p - libro)
-            (and 
-              (paralelo ?l ?p)
-              (not (leyendo ?p))
-              (not (leyendo_mes_anterior ?p))
-              (not (leido ?p))
-            )
-          )
-        )
-      ))
-      (not (exists (?l - libro)
-        (and 
-          (leyendo ?l)
-          (exists (?p - libro)
-            (and 
-              (paralelo ?l ?p)
-              (not (leyendo ?p))
-              (not (leyendo_mes_anterior ?p))
-            )
-          )
-        )
-      ))
-    )
-    :effect (and
-      (not (mes_actual ?m))
-      (forall (?l - libro)
-        (when (leyendo_mes_anterior ?l) 
-          (and
-            (not (leyendo_mes_anterior ?l))
-            (leido ?l)
-          )
-        )
-      )
-      (forall (?l - libro)
-        (when (leyendo ?l) 
-          (and
-            (not (leyendo ?l))
-            (leido ?l)
-          )
-        )
-      )
-    )
-  )
 
 
    
