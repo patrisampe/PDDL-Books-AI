@@ -3,17 +3,17 @@
   (:types libro mes - object)           
   (:functions
     (paginas ?l - libro)
-    (paginas_actuales)
+    (paginas_leidas ?m - mes)
   )
   (:predicates
    (leido ?l - libro)
    (leyendo ?l - libro)
    (leyendo_mes_anterior ?l - libro)
    (mes_siguiente ?m1 - mes ?m2 - mes)
-   (mes_actual ?m - mes)
-   (deseado ?l - libro)
-   (predecessor ?l1 - libro ?lp - libro)
-   (paralelo ?l1 - libro ?l2 - libro)  
+   (mes_actual ?m - mes) 
+   (deseado ?l - libro) ; "l es un libro deseado"
+   (predecessor ?l1 - libro ?l2 - libro) ; "el predecesor de l1 es l2"
+   (paralelo ?l1 - libro ?l2 - libro)  ; "el libpro paralelo a l1 es l2"
   )
 
   (:action leer
@@ -31,10 +31,13 @@
         )
       )
       )
-  		;(<= (+ (paginas ?l) (paginas_actuales)) 800)
+  		(<= (+ (paginas ?l) (paginas_leidas ?m)) 800)
 
     )
-    :effect (and (leyendo ?l)) ;(increase (paginas_actuales) (paginas ?l)))
+    :effect (and 
+      (leyendo ?l) 
+      (increase (paginas_leidas ?m) (paginas ?l))
+    )
   )
   
   (:action pasar_de_mes
@@ -58,8 +61,7 @@
     )  
     :effect (and 
       (not (mes_actual ?m)) 
-      (mes_actual ?m2) 
-      ;(= (paginas_actuales) 0)
+      (mes_actual ?m2)
 	    (forall (?l - libro)
 	      (when (leyendo_mes_anterior ?l) 
 	        (and

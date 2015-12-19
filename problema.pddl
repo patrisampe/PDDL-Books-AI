@@ -39,16 +39,30 @@
   ; Libros que deseamos leer
   (deseado Harry_Potter_4)
   (deseado Star_Wars_3)
-  
+  (paralelo Star_Wars_1 Harry_Potter_5)
+  (paralelo Harry_Potter_5 Star_Wars_1)
   (= (paginas Harry_Potter_1) 100)
   (= (paginas Harry_Potter_2) 100)
   (= (paginas Harry_Potter_3) 100)
-  (= (paginas Harry_Potter_4) 100)
+  (= (paginas Harry_Potter_4) 500)
   (= (paginas Harry_Potter_5) 100)
   (= (paginas Star_Wars_2) 100)
-  (= (paginas Star_Wars_1) 100)
+  (= (paginas Star_Wars_1) 500)
   (= (paginas Star_Wars_3) 100)
-  (= (paginas_actuales) 0)
+  (= (paginas_leidas enero) 0)
+  (= (paginas_leidas febrero) 0)
+  (= (paginas_leidas marzo) 0)
+  (= (paginas_leidas abril) 0)
+  (= (paginas_leidas mayo) 0)
+  (= (paginas_leidas junio) 0)
+  (= (paginas_leidas julio) 0)
+  (= (paginas_leidas agosto) 0)
+  (= (paginas_leidas setiembre) 0)
+  (= (paginas_leidas octubre) 0)
+  (= (paginas_leidas noviembre) 0)
+  (= (paginas_leidas diciembre) 0)
+
+
   
 )
 
