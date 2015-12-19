@@ -1,4 +1,4 @@
-(define (domain basic)
+(define (domain ext1)
   (:requirements :strips :typing :adl)
   (:types libro - object)
 
@@ -10,9 +10,6 @@
   (:action leer
     :parameters (?l - libro)
     :precondition (and (not (leido ?l))
-                       (or (deseado ?l) (exists (?p - libro) (and (predecesor ?p ?l)
-                                                                  (deseado ?p)))
-                       )
                        (not (exists (?p - libro) (and (predecesor ?l ?p) 
                                                       (not (leido ?p))))
                        )
