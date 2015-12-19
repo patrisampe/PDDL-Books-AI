@@ -40,6 +40,7 @@
           (exists (?p - libro)
             (and 
               (paralelo ?l ?p)
+              (not (leyendo ?p))
               (not (leyendo_mes_anterior ?p))
               (not (leido ?p))
             )
