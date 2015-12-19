@@ -41,10 +41,10 @@
  (predecessor libro_8 libro_6) 
  (predecessor libro_9 libro_6) 
  (predecessor libro_9 libro_7) 
-   (deseado libro_5)  (deseado libro_9)  (deseado libro_4)  (deseado libro_8)  (deseado libro_0) 
+   (deseado libro_5)(deseado libro_9)  (deseado libro_4)  (deseado libro_8)  (deseado libro_0) 
   (leido libro_1)  (leido libro_2)  (leido libro_3)  (leido libro_7)  (leido libro_6)
  (es_fi fin)
 )
-(:goal (and 
- forall (?l libro) (imply (deseado ?l) (leido ?l)))
+(:goal (
+ forall (?l - libro) (imply (deseado ?l) (leido ?l)))
 ))

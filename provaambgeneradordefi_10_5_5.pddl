@@ -45,6 +45,6 @@
   (leido libro_8)
  (es_fi fin)
 )
-(:goal (and 
- forall (?l libro) (imply (deseado ?l) (leido ?l)))
+(:goal (
+ forall (?l - libro) (imply (deseado ?l) (leido ?l)))
 ))
