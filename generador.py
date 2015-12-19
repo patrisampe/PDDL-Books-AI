@@ -13,7 +13,7 @@ numerodenodes = int(sys.argv[1])
 numerodeseados = int(sys.argv[2])
 numeroleidos = int(sys.argv[3])
 
-f =open('provaambgeneradordef_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
+f =open('provaambgeneradordefi_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
 
 G=nx.gnp_random_graph(numerodenodes,random.uniform(0.1,0.9),directed=True)
 DAG = nx.DiGraph([(u,v,{'weight':random.randint(1,1)}) for (u,v) in G.edges() if u<v] )
@@ -22,28 +22,28 @@ nx.nodes(DAG)
 
 f.write( '(define (problem basico1) \n  (:domain planningbooks) \n  (:objects ')
 for i in nx.nodes(DAG):
-    aux= '  libro_' +`i`
+    aux= '\n  libro_' +`i`
     f.write( aux)
 
-f.write( '  - libro ')
+f.write( '\n  - libro ')
 f.write( '\n  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre fin - mes')
 f.write( '\n )')
     
 f.write( '\n(:init')
 f.write( '\n  (mes_actual enero)')
-f.write( '  (mes_siguiente enero febrero) ')
-f.write( '  (mes_siguiente febrero marzo)')
-f.write( '  (mes_siguiente marzo abril)')
-f.write( '  (mes_siguiente abril mayo)')
-f.write( '  (mes_siguiente mayo junio)')
-f.write( '  (mes_siguiente junio julio)')
-f.write( '  (mes_siguiente julio agosto)')
-f.write( '  (mes_siguiente agosto setiembre)')
-f.write( '  (mes_siguiente setiembre octubre)')
-f.write( '  (mes_siguiente octubre noviembre)')
-f.write( '  (mes_siguiente noviembre diciembre)')
-f.write( '  (mes_siguiente diciembre fin)')
-f.write ( ' \n ')
+f.write( '\n  (mes_siguiente enero febrero) ')
+f.write( '\n  (mes_siguiente febrero marzo)')
+f.write( '\n  (mes_siguiente marzo abril)')
+f.write( '\n  (mes_siguiente abril mayo)')
+f.write( '\n  (mes_siguiente mayo junio)')
+f.write( '\n  (mes_siguiente junio julio)')
+f.write( '\n  (mes_siguiente julio agosto)')
+f.write( '\n  (mes_siguiente agosto setiembre)')
+f.write( '\n  (mes_siguiente setiembre octubre)')
+f.write( '\n  (mes_siguiente octubre noviembre)')
+f.write( '\n  (mes_siguiente noviembre diciembre)')
+f.write( '\n  (mes_siguiente diciembre fin)')
+
 perm = DAG.edges()
 
 for i in range(len(nx.topological_sort(DAG))):
@@ -54,25 +54,25 @@ for i in range(len(nx.topological_sort(DAG))):
             perm.remove((u,v))
         if (v,u) in perm:
             perm.remove((v,u))
-        f.write( '  (paralelo libro_'+`u`+' libro_'+`v`+')')
-        f.write( '  (paralelo libro_'+`v`+' libro_'+`u`+')')
-f.write ( ' \n ') 
+        f.write( '\n  (paralelo libro_'+`u`+' libro_'+`v`+')')
+        f.write( '\n  (paralelo libro_'+`v`+' libro_'+`u`+')')
+
 for (u,v) in perm:
     f.write( ' \n (predecessor libro_'+`v`+' libro_'+`u`+')')
-f.write ( ' \n ') 
+
 nodestotal = DAG.nodes()
 deseo = []
 for i in range(numerodeseados):
     if(len(nodestotal) > 0):
         aux =np.random.randint(0,len(nodestotal))
-        f.write( '  (deseado libro_'+`nodestotal[aux]`+')')
+        f.write( '\n  (deseado libro_'+`nodestotal[aux]`+')')
         deseo.append(nodestotal[aux])
         nodestotal.remove(nodestotal[aux])
 f.write( ' \n')
 for i in range(numeroleidos):
     if(len(nodestotal) > 0):
         aux =np.random.randint(0,len(nodestotal))
-        f.write( '  (leido libro_'+`nodestotal[aux]`+')')
+        f.write( '\n  (leido libro_'+`nodestotal[aux]`+')')
         nodestotal.remove(nodestotal[aux])
 
 f.write( '\n (es_fi fin)' )
