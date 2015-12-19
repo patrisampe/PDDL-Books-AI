@@ -22,7 +22,7 @@
    libro_18
    libro_19
   - libro 
-  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre - mes
+  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre fin - mes
  )
 (:init
   (mes_actual enero)
@@ -37,6 +37,7 @@
   (mes_siguiente setiembre octubre)
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
+  (mes_siguiente noviembre fin)
   (paralelo libro_9 libro_4)
   (paralelo libro_4 libro_9)
   (paralelo libro_7 libro_3)
@@ -85,6 +86,7 @@
   (leido libro_10)
   (deseado libro_4)
   (deseado libro_5)
+  (es_fi fin)
 )
 (:goal (and 
   (leido libro_4)
