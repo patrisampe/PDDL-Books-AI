@@ -1,17 +1,4 @@
-(define (problem ext1-1) (:domain ext1)
-(:objects
-	Harry_Potter_1
-  Harry_Potter_2
-  Harry_Potter_3
-  Harry_Potter_4
-  Harry_Potter_5
-  Star_Wars_1
-  Star_Wars_2
-  Star_Wars_3
-  Juego_de_Tronos
-  Crepusculo
-  Cincuenta_Sombras_de_Grey
-  l0 l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 l11 l12 l13 l14 l15 l16 l17 l18 l19 l20 l21 l22 l23 l24 l25 l26 l27 l28 l29 l30 l31 l32 l33 l34 l35 l36 l37 l38 l39 l40 l41 l42 l43 l44 l45 l46 l47 l48 l49 
+l0 l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 l11 l12 l13 l14 l15 l16 l17 l18 l19 l20 l21 l22 l23 l24 l25 l26 l27 l28 l29 l30 l31 l32 l33 l34 l35 l36 l37 l38 l39 l40 l41 l42 l43 l44 l45 l46 l47 l48 l49 
 
 l50 l51 l52 l53 l54 l55 l56 l57 l58 l59 l60 l61 l62 l63 l64 l65 l66 l67 l68 l69 l70 l71 l72 l73 l74 l75 l76 l77 l78 l79 l80 l81 l82 l83 l84 l85 l86 l87 l88 l89 l90 l91 l92 l93 l94 l95 l96 l97 l98 l99 
 
@@ -49,29 +36,5 @@ l850 l851 l852 l853 l854 l855 l856 l857 l858 l859 l860 l861 l862 l863 l864 l865 
 
 l900 l901 l902 l903 l904 l905 l906 l907 l908 l909 l910 l911 l912 l913 l914 l915 l916 l917 l918 l919 l920 l921 l922 l923 l924 l925 l926 l927 l928 l929 l930 l931 l932 l933 l934 l935 l936 l937 l938 l939 l940 l941 l942 l943 l944 l945 l946 l947 l948 l949 
 
-l950 l951 l952 l953 l954 l955 l956 l957 l958 l959 l960 l961 l962 l963 l964 l965 l966 l967 l968 l969 l970 l971 l972 l973 l974 l975 l976 l977 l978 l979 l980 l981 l982 l983 l984 l985 l986 l987 l988 l989 l990 l991 l992 l993 l994 l995 l996 l997 l998 l999
-  - libro
-)
+l950 l951 l952 l953 l954 l955 l956 l957 l958 l959 l960 l961 l962 l963 l964 l965 l966 l967 l968 l969 l970 l971 l972 l973 l974 l975 l976 l977 l978 l979 l980 l981 l982 l983 l984 l985 l986 l987 l988 l989 l990 l991 l992 l993 l994 l995 l996 l997 l998 l999 
 
-(:init
-  ; Predecesores
-  (predecesor Harry_Potter_5 Harry_Potter_4)
-  (predecesor Harry_Potter_4 Harry_Potter_3)
-  (predecesor Harry_Potter_3 Harry_Potter_2)
-  (predecesor Harry_Potter_2 Harry_Potter_1)
-  (predecesor Star_Wars_3 Star_Wars_2)
-  (predecesor Star_Wars_2 Star_Wars_1)
-  ; Libros que ya hemos leido
-  (leido Harry_Potter_1)
-  ; Libros que deseamos leer
-  (deseado Harry_Potter_5)
-  (deseado Star_Wars_2)
-  (deseado l950)
-)
-
-(:goal (and
-  (forall (?l - libro) (imply (deseado ?l) (leido ?l)))  
-	)
-)
-
-)
