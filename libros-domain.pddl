@@ -26,7 +26,7 @@
 	(not (exists (?p - libro) 
         (and
           (predecessor ?l ?p)
-  	    (or 
+  	    (and 
             (not (leido ?p))  
             (not (leyendo_mes_anterior ?p))
           ) 
