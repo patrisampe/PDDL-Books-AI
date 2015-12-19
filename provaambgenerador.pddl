@@ -1,26 +1,26 @@
 (define (problem basico1) 
   (:domain planningbooks) 
   (:objects 
-   0
-   1
-   2
-   3
-   4
-   5
-   6
-   7
-   8
-   9
-   10
-   11
-   12
-   13
-   14
-   15
-   16
-   17
-   18
-   19
+   libro_0
+   libro_1
+   libro_2
+   libro_3
+   libro_4
+   libro_5
+   libro_6
+   libro_7
+   libro_8
+   libro_9
+   libro_10
+   libro_11
+   libro_12
+   libro_13
+   libro_14
+   libro_15
+   libro_16
+   libro_17
+   libro_18
+   libro_19
   - libro 
   enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre - mes
  )
@@ -37,78 +37,80 @@
   (mes_siguiente setiembre octubre)
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
-  (paralelo 4 1)
-  (paralelo 1 4)
-  (paralelo 2 8)
-  (paralelo 8 2)
-  (paralelo 15 0)
-  (paralelo 0 15)
-  (paralelo 3 5)
-  (paralelo 5 3)
-  (paralelo 6 7)
-  (paralelo 7 6)
-  (paralelo 10 11)
-  (paralelo 11 10)
-  (paralelo 16 9)
-  (paralelo 9 16)
-  (paralelo 17 12)
-  (paralelo 12 17)
-  (paralelo 13 14)
-  (paralelo 14 13)
-  (paralelo 18 19)
-  (paralelo 19 18)
-  (predecessor 3 0)
-  (predecessor 6 0)
-  (predecessor 9 0)
-  (predecessor 12 0)
-  (predecessor 14 0)
-  (predecessor 18 0)
-  (predecessor 3 1)
-  (predecessor 2 1)
-  (predecessor 19 1)
-  (predecessor 10 1)
-  (predecessor 3 2)
-  (predecessor 5 2)
-  (predecessor 9 2)
-  (predecessor 11 2)
-  (predecessor 16 2)
-  (predecessor 17 2)
-  (predecessor 19 2)
-  (predecessor 14 3)
-  (predecessor 16 4)
-  (predecessor 10 4)
-  (predecessor 14 5)
-  (predecessor 10 7)
-  (predecessor 12 8)
-  (predecessor 13 8)
-  (predecessor 15 8)
-  (predecessor 17 9)
-  (predecessor 18 10)
-  (predecessor 16 11)
-  (predecessor 19 11)
-  (predecessor 13 11)
-  (predecessor 19 12)
-  (predecessor 13 12)
-  (predecessor 14 12)
-  (predecessor 18 14)
-  (predecessor 19 14)
-  (predecessor 17 15)
-  (leido 14)
-  (leido 18)
-  (leido 13)
-  (leido 9)
-  (leido 12)
-  (deseado 2)
-  (deseado 8)
-  (deseado 4)
-  (deseado 0)
-  (deseado 15)
+  (paralelo libro_8 libro_5)
+  (paralelo libro_5 libro_8)
+  (paralelo libro_10 libro_3)
+  (paralelo libro_3 libro_10)
+  (paralelo libro_1 libro_0)
+  (paralelo libro_0 libro_1)
+  (paralelo libro_16 libro_2)
+  (paralelo libro_2 libro_16)
+  (paralelo libro_9 libro_4)
+  (paralelo libro_4 libro_9)
+  (paralelo libro_11 libro_7)
+  (paralelo libro_7 libro_11)
+  (paralelo libro_12 libro_13)
+  (paralelo libro_13 libro_12)
+  (paralelo libro_19 libro_14)
+  (paralelo libro_14 libro_19)
+  (paralelo libro_6 libro_17)
+  (paralelo libro_17 libro_6)
+  (paralelo libro_18 libro_15)
+  (paralelo libro_15 libro_18)
+  (predecessor libro_16 libro_0)
+  (predecessor libro_2 libro_0)
+  (predecessor libro_12 libro_0)
+  (predecessor libro_6 libro_0)
+  (predecessor libro_15 libro_0)
+  (predecessor libro_16 libro_1)
+  (predecessor libro_9 libro_1)
+  (predecessor libro_2 libro_1)
+  (predecessor libro_11 libro_1)
+  (predecessor libro_18 libro_1)
+  (predecessor libro_9 libro_2)
+  (predecessor libro_18 libro_2)
+  (predecessor libro_4 libro_2)
+  (predecessor libro_13 libro_2)
+  (predecessor libro_12 libro_2)
+  (predecessor libro_18 libro_3)
+  (predecessor libro_19 libro_3)
+  (predecessor libro_15 libro_3)
+  (predecessor libro_11 libro_4)
+  (predecessor libro_7 libro_4)
+  (predecessor libro_19 libro_4)
+  (predecessor libro_6 libro_4)
+  (predecessor libro_15 libro_4)
+  (predecessor libro_16 libro_5)
+  (predecessor libro_10 libro_5)
+  (predecessor libro_12 libro_5)
+  (predecessor libro_18 libro_5)
+  (predecessor libro_19 libro_7)
+  (predecessor libro_13 libro_8)
+  (predecessor libro_17 libro_10)
+  (predecessor libro_19 libro_11)
+  (predecessor libro_12 libro_11)
+  (predecessor libro_19 libro_12)
+  (predecessor libro_14 libro_12)
+  (predecessor libro_18 libro_13)
+  (predecessor libro_19 libro_13)
+  (predecessor libro_18 libro_14)
+  (predecessor libro_18 libro_17)
+  (leido libro_6)
+  (leido libro_11)
+  (leido libro_16)
+  (leido libro_5)
+  (leido libro_7)
+  (deseado libro_14)
+  (deseado libro_4)
+  (deseado libro_1)
+  (deseado libro_10)
+  (deseado libro_8)
 )
 (:goal (and 
-  (leido 2)
-  (leido 8)
-  (leido 4)
-  (leido 0)
-  (leido 15)
+  (leido libro_14)
+  (leido libro_4)
+  (leido libro_1)
+  (leido libro_10)
+  (leido libro_8)
 ))
 )
