@@ -4,13 +4,22 @@
   Harry_Potter_2
   Harry_Potter_3
   Harry_Potter_4
+  Harry_Potter_5
+  Harry_Potter_6
+  Harry_Potter_7
+  Harry_Potter_8
+  Harry_Potter_9
+  Harry_Potter_10
+  Harry_Potter_11
+  Harry_Potter_12
+  Harry_Potter_13
   Star_Wars_1
   Star_Wars_2
   Crepusculo
   Cincuenta_Sombras_de_Grey
   Juego_de_Tronos
   - libro
-  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre - mes
+  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre f1 f2 - mes
 )
 
 (:init
@@ -27,7 +36,20 @@
   (mes_siguiente setiembre octubre)
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
+  (mes_siguiente diciembre f1)
+  (mes_siguiente f1 f2)
+  (es_fantasma f1)
+  (es_fantasma f2)
   ; Predecesores
+  (predecesor Harry_Potter_13 Harry_Potter_12)
+  (predecesor Harry_Potter_12 Harry_Potter_11)
+  (predecesor Harry_Potter_11 Harry_Potter_10)
+  (predecesor Harry_Potter_10 Harry_Potter_9)
+  (predecesor Harry_Potter_9 Harry_Potter_8)
+  (predecesor Harry_Potter_8 Harry_Potter_7)
+  (predecesor Harry_Potter_7 Harry_Potter_6)
+  (predecesor Harry_Potter_6 Harry_Potter_5)
+  (predecesor Harry_Potter_5 Harry_Potter_4)
   (predecesor Harry_Potter_4 Harry_Potter_3)
   (predecesor Harry_Potter_3 Harry_Potter_2)
   (predecesor Harry_Potter_2 Harry_Potter_1)
@@ -36,9 +58,7 @@
   (leido Juego_de_Tronos)
   ; Libros que deseamos leer
   ;(deseado Harry_Potter_1)
-  (deseado Harry_Potter_4)
-  (deseado Star_Wars_2)
-  (deseado Crepusculo)
+  (deseado Harry_Potter_10)
 )
 
 (:goal (and
