@@ -13,11 +13,10 @@ numerodenodes = int(sys.argv[1])
 numerodeseados = int(sys.argv[2])
 numeroleidos = int(sys.argv[3])
 
-f =open('provaambgeneradorarasi_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
+f =open('problemagenerador_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
 
 G=nx.gnp_random_graph(numerodenodes,random.uniform(0.1,0.9),directed=True)
 DAG = nx.DiGraph([(u,v,{'weight':random.randint(1,1)}) for (u,v) in G.edges() if u<v] )
-nx.is_directed_acyclic_graph(DAG)
 nx.nodes(DAG)
 
 f.write( '(define (problem basico1) \n  (:domain planningbooks) \n  (:objects ')
