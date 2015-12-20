@@ -80,7 +80,7 @@ for i in range(numeroleidos):
         f.write( '  (leido libro_'+`nodestotal[aux]`+')')
         nodestotal.remove(nodestotal[aux])
 
-f.write( '\n (es_fi fin) (es_fi fin2)' )
+f.write( '\n (es_fantasma fin) (es_fantasma fin2)' )
 f.write( '\n)'  )
 
 f.write( '\n(:goal (and ')
