@@ -31,6 +31,8 @@
   (mes_siguiente setiembre octubre)
   (mes_siguiente octubre noviembre)
   (mes_siguiente noviembre diciembre)
+  (mes_siguiente diciembre f1)
+  (mes_siguiente f1 f2)
   (es_fantasma f1)
   (es_fantasma f2)
   ; Predecesores

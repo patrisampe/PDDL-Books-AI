@@ -1,4 +1,4 @@
-(define (problem ext1-2) (:domain ext1)
+(define (problem ext1-3) (:domain ext1)
 (:objects
   Harry_Potter_1
   Harry_Potter_2
@@ -58,6 +58,7 @@
   (predecesor Star_Wars_2 Star_Wars_1)
   ; Libros que ya hemos leido
   (leido Crepusculo)
+  (leido Harry_Potter_1)
   ; Libros que deseamos leer
   (deseado Harry_Potter_13)
 )

@@ -58,8 +58,17 @@
   (predecesor Star_Wars_2 Star_Wars_1)
   ; Libros que ya hemos leido
   (leido Crepusculo)
+  (leido Harry_Potter_1)
+  (leido Harry_Potter_2)
+  (leido Harry_Potter_3)
+  (leido Harry_Potter_4)
+  (leido Harry_Potter_5)
+  (leido Harry_Potter_6)
   ; Libros que deseamos leer
+  (deseado Harry_Potter_9)
   (deseado Harry_Potter_13)
+  (deseado Juego_de_Tronos)
+  (deseado Cincuenta_Sombras_de_Grey)
 )
 
 (:goal (and
