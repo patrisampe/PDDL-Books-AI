@@ -38,6 +38,9 @@
   ; Predecesores
   (predecesor Harry_Potter_2 Harry_Potter_1)
   (predecesor Star_Wars_2 Star_Wars_1)
+  (predecesor l250 l249)
+  (predecesor l200 l199)
+  (predecesor l100 l99)
   ; Libros que ya hemos leido
   (leido Juego_de_Tronos)
   ; Libros que deseamos leer
