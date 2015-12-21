@@ -84,12 +84,12 @@ f.write( '\n (es_fi fin) (es_fi fin2)' )
 f.write( '\n)'  )
 
 f.write( '\n(:goal (and ')
-"""
+f.write( '\n'  )
 for i in range(len(deseo)):
-    f.write( '\n  (leido libro_'+`deseo[i]`+')')
+    f.write( ' (leido libro_'+`deseo[i]`+')')
 """
 f.write ("\n forall (?l libro) (imply (deseado ?l) (leido ?l)))")
+"""
 
-
-f.write( '\n))')
+f.write( '\n)))')
 f.close()
