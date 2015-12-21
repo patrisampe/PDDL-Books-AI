@@ -12,8 +12,9 @@ numeroleidos = input("Numero de llibros leidos: ")
 numerodenodes = int(sys.argv[1])
 numerodeseados = int(sys.argv[2])
 numeroleidos = int(sys.argv[3])
-
-f =open('provaambgeneradornou_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
+numeroparalelos = int(sys.argv[4])
+paralelsseguits= int(sys.argv[5])
+f =open('provaambgeneradornou_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'_'+`numeroparalelos`+'_'+`paralelsseguits`+'.pddl','w')
 
 G=nx.gnp_random_graph(numerodenodes,random.uniform(0.1,0.9),directed=True)
 DAG = nx.DiGraph([(u,v,{'weight':random.randint(1,1)}) for (u,v) in G.edges() if u<v] )
@@ -47,8 +48,18 @@ f.write( '  (mes_siguiente diciembre fin2)')
 f.write ( ' \n ')
 perm = DAG.edges()
 j = 0
+
 for i in range(len(nx.topological_sort(DAG))):
-    if(j< 3 and i%2 == 0 and (i+1)< len(nx.topological_sort(DAG))):
+    if(paralelsseguits == 0 and j< numeroparalelos and i%2 == 0 and (i+1)< len(nx.topological_sort(DAG))):
+        u = nx.topological_sort(DAG)[i]
+        v = nx.topological_sort(DAG)[i+1]
+        if (u,v) in perm:
+            perm.remove((u,v))
+        if (v,u) in perm:
+            perm.remove((v,u))
+        f.write( '  (paralelo libro_'+`v`+' libro_'+`u`+')')
+        j = j+1
+    if (paralelsseguits == 1 and j < numeroparalelos and (i+1)< len(nx.topological_sort(DAG))):
         u = nx.topological_sort(DAG)[i]
         v = nx.topological_sort(DAG)[i+1]
         if (u,v) in perm:
@@ -56,7 +67,6 @@ for i in range(len(nx.topological_sort(DAG))):
         if (v,u) in perm:
             perm.remove((v,u))
         f.write( '  (paralelo libro_'+`u`+' libro_'+`v`+')')
-        f.write( '  (paralelo libro_'+`v`+' libro_'+`u`+')')
         j = j+1
 f.write ( ' \n ')
 io = 0 
