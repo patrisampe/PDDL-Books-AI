@@ -1,10 +1,6 @@
 (define (domain planningbooks)
-  (:requirements :strips :adl :typing); :fluents)
+  (:requirements :strips :adl :typing)
   (:types libro mes - object)           
- ; (:functions
- ;   (paginas ?l - libro)
- ;   (paginas_actuales)
- ; )
 
   (:predicates
    (leido ?l - libro)
@@ -15,13 +11,13 @@
    (deseado ?l - libro)
    (predecessor ?l1 - libro ?lp - libro)
    (paralelo ?l1 - libro ?l2 - libro)  
-   (es_fi ?m - mes)
+   (es_fantasma ?m - mes)
   )
 
   (:action leer
     :parameters (?l - libro ?m - mes)
     :precondition (and 
-      (not (es_fi ?m))
+      (not (es_fantasma ?m))
       (mes_actual ?m)
       (not (leyendo ?l))
       (not (leido ?l)) 
@@ -32,12 +28,10 @@
           (not (leido ?p))  
           (not (leyendo_mes_anterior ?p))
         )
-      )
-      )
-  	;	(<= (+ (paginas ?l) (paginas_actuales)) 800)
+      ))
 
     )
-    :effect (and (leyendo ?l)); (increase (paginas_actuales) (paginas ?l)))
+    :effect (and (leyendo ?l))
   )
   
   (:action pasar_de_mes
@@ -55,7 +49,6 @@
               (not (leido ?p))
             )
           )
-      ;    (= (paginas_actuales) 0)
         )
       ))
 
