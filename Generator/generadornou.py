@@ -67,6 +67,17 @@ for (u,v) in perm:
 f.write ( ' \n ') 
 nodestotal = DAG.nodes()
 deseo = []
+orden = nx.nx.topological_sort(DAG)
+
+for i in range(numeroleidos):
+       
+        if(i == (numeroleidos -1)):
+            f.write( '  (leyendo_mes_anterior libro_'+`orden[i]`+')')
+            nodestotal.remove(orden[i])
+        else:
+            f.write( '  (leido libro_'+`orden[i]`+')')
+            nodestotal.remove(orden[i])
+f.write ( ' \n ') 
 for i in range(numerodeseados):
     if(len(nodestotal) > 0):
         aux =np.random.randint(0,len(nodestotal))
@@ -74,22 +85,20 @@ for i in range(numerodeseados):
         deseo.append(nodestotal[aux])
         nodestotal.remove(nodestotal[aux])
 f.write( ' \n')
-for i in range(numeroleidos):
-    if(len(nodestotal) > 0):
-        aux =np.random.randint(0,len(nodestotal))
-        f.write( '  (leido libro_'+`nodestotal[aux]`+')')
-        nodestotal.remove(nodestotal[aux])
+
+
 
 f.write( '\n (es_fi fin) (es_fi fin2)' )
 f.write( '\n)'  )
 
 f.write( '\n(:goal (and ')
+"""
 f.write( '\n'  )
 for i in range(len(deseo)):
     f.write( ' (leido libro_'+`deseo[i]`+')')
 """
-f.write ("\n forall (?l libro) (imply (deseado ?l) (leido ?l)))")
-"""
+f.write ("\n (forall (?l - libro) (imply (deseado ?l) (leido ?l))))")
 
-f.write( '\n)))')
+
+f.write( '\n))')
 f.close()

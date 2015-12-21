@@ -13,10 +13,11 @@ numerodenodes = int(sys.argv[1])
 numerodeseados = int(sys.argv[2])
 numeroleidos = int(sys.argv[3])
 
-f =open('problemagenerador_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
+f =open('provaambgeneradornou_'+`numerodenodes`+'_'+`numerodeseados`+'_'+`numeroleidos`+'.pddl','w')
 
 G=nx.gnp_random_graph(numerodenodes,random.uniform(0.1,0.9),directed=True)
 DAG = nx.DiGraph([(u,v,{'weight':random.randint(1,1)}) for (u,v) in G.edges() if u<v] )
+nx.is_directed_acyclic_graph(DAG)
 nx.nodes(DAG)
 
 f.write( '(define (problem basico1) \n  (:domain planningbooks) \n  (:objects ')
@@ -25,7 +26,7 @@ for i in nx.nodes(DAG):
     f.write( aux)
 
 f.write( '  - libro ')
-f.write( '\n  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre fin - mes')
+f.write( '\n  enero febrero marzo abril mayo junio julio agosto setiembre octubre noviembre diciembre fin fin2 - mes')
 f.write( '\n )')
     
 f.write( '\n(:init')
@@ -47,7 +48,7 @@ f.write ( ' \n ')
 perm = DAG.edges()
 j = 0
 for i in range(len(nx.topological_sort(DAG))):
-    if( j < 3 and i%2 == 0 and (i+1)< len(nx.topological_sort(DAG))):
+    if(j< 3 and i%2 == 0 and (i+1)< len(nx.topological_sort(DAG))):
         u = nx.topological_sort(DAG)[i]
         v = nx.topological_sort(DAG)[i+1]
         if (u,v) in perm:
@@ -67,6 +68,17 @@ for (u,v) in perm:
 f.write ( ' \n ') 
 nodestotal = DAG.nodes()
 deseo = []
+orden = nx.nx.topological_sort(DAG)
+
+for i in range(numeroleidos):
+       
+        if(i == (numeroleidos -1)):
+            f.write( '  (leyendo_mes_anterior libro_'+`orden[i]`+')')
+            nodestotal.remove(orden[i])
+        else:
+            f.write( '  (leido libro_'+`orden[i]`+')')
+            nodestotal.remove(orden[i])
+f.write ( ' \n ') 
 for i in range(numerodeseados):
     if(len(nodestotal) > 0):
         aux =np.random.randint(0,len(nodestotal))
@@ -74,21 +86,19 @@ for i in range(numerodeseados):
         deseo.append(nodestotal[aux])
         nodestotal.remove(nodestotal[aux])
 f.write( ' \n')
-for i in range(numeroleidos):
-    if(len(nodestotal) > 0):
-        aux =np.random.randint(0,len(nodestotal))
-        f.write( '  (leido libro_'+`nodestotal[aux]`+')')
-        nodestotal.remove(nodestotal[aux])
 
-f.write( '\n (es_fantasma fin) (es_fantasma fin2)' )
+
+
+f.write( '\n (es_fi fin) (es_fi fin2)' )
 f.write( '\n)'  )
 
 f.write( '\n(:goal (and ')
 """
+f.write( '\n'  )
 for i in range(len(deseo)):
-    f.write( '\n  (leido libro_'+`deseo[i]`+')')
+    f.write( ' (leido libro_'+`deseo[i]`+')')
 """
-f.write ("\n (forall (?l libro) (imply (deseado ?l) (leido ?l))))")
+f.write ("\n (forall (?l - libro) (imply (deseado ?l) (leido ?l))))")
 
 
 f.write( '\n))')
