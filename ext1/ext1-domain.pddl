@@ -16,7 +16,7 @@
     :parameters (?l - libro ?m - mes)
     :precondition (and (not (leido ?l))
                        (not (leyendo ?l))
-                       (not (leyendo_mes_anterior ?l))
+                       (not (leyendo_mes_anterior ?l)) 
                        (mes_actual ?m)
                        (not (es_fantasma ?m))                       
                        (not (exists (?p - libro) 
